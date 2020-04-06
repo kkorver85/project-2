@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>World Meat Consumption</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/d3Style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.3.4.min.js"></script>
+  <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.3.4.min.js"></script>
+
+  <script>
+    $(function(){
+      $("#worldMap").load("/meat_world");
+    });
+  </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-xl-12 jumbotron text-center">
+            <h1>World Meat Dashboard</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-xl-12 text-center">
+            <h3>Meat Consumption vs Cardiovascular Deaths (by Year)</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-6 col-xl-6">
+            <div class="chart" id="barChart" style="height: 500px; width: 750px; margin: auto;">
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-6">
+            <div class="chart" id="barChart2" style="height: 500px; width: 750px; margin: auto;">
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 50px;">
+          <div class="col-md-12 col-lg-12 col-xl-12 text-center">
+              <form style="text-align: center;">
+                <label for="year">Please select a year to see bar chart and scatter plot data for: </label>
+                <input style="margin: auto; display: block; width: 400px;" type="range" min=1992 max=2017 step=1 id="year" value=2017 oninput="selected_year.value = year.value">
+                <output name="selected_year" id="selected_year">2017</output>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 50px;">
+          <div class="col-md-12 col-lg-12 col-xl-12 text-center">
+            <h3>Meat Production vs CO2 Emission (by Year)</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-xl-12 text-center">
+            <div class="chart" id="scatterPlot" style="height: 600px; width: 900px; margin: auto;">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 50px;">
+          <div class="col-md-12 col-lg-12 col-xl-12 text-center">
+            <h3>Meat Consumption Per Person (in 2016)</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-xl-12 text-center">
+            <div class="chart" id="worldMap" style="margin: 0 auto;">
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+
+
+
+
+  <script src="../static/bar_interactive.js"></script>
+  <script src="../static/scatter_interactive.js"></script>
+
+
+</body>
+
+</html>
